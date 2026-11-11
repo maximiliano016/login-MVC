@@ -1,0 +1,32 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<div class="caja centrada">
+    <h1>Iniciar sesión</h1>
+
+    @* Error enviado por LoginController (credenciales incorrectas) *@
+    @if (ViewBag.Error != null)
+    {
+        <p class="aviso error">@ViewBag.Error</p>
+    }
+
+    <form asp-controller="Login" asp-action="Index" method="post">
+        <label asp-for="NombreUsuario"></label>
+        <input asp-for="NombreUsuario" autocomplete="username" autofocus />
+        <span asp-validation-for="NombreUsuario"></span>
+
+        <label asp-for="Password"></label>
+        <input asp-for="Password" autocomplete="current-password" />
+        <span asp-validation-for="Password"></span>
+
+        <div class="botones">
+            <button type="submit">Entrar</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

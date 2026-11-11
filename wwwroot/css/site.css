@@ -1,0 +1,260 @@
+/* AstroMission - estilos simples */
+
+:root {
+  --texto: #1f2933;
+  --suave: #6b7280;
+  --borde: #e5e7eb;
+  --acento: #1e3a8a;
+  --fondo: #f7f7f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+a {
+  color: var(--acento);
+}
+
+/* Cabecera y pie */
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--borde);
+  background: #fff;
+}
+
+.marca {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.cabecera nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.usuario {
+  color: var(--suave);
+}
+
+.pie {
+  text-align: center;
+  color: var(--suave);
+  font-size: 13px;
+  padding: 24px;
+}
+
+.contenido {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  min-height: calc(100vh - 140px);
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 4px;
+}
+
+.suave {
+  color: var(--suave);
+}
+
+/* Encabezado de cada página: título a la izquierda, botón a la derecha */
+.titulo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* Botones */
+.boton,
+button {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--acento);
+  border-radius: 6px;
+  background: var(--acento);
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton.secundario {
+  background: #fff;
+  color: var(--acento);
+}
+
+.boton.peligro {
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+/* Botón que se ve como enlace (Salir) */
+button.enlace {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--acento);
+  text-decoration: underline;
+}
+
+/* Tabla de misiones */
+.tabla {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--borde);
+  vertical-align: top;
+}
+
+th {
+  font-size: 13px;
+  color: var(--suave);
+  font-weight: 600;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.acciones a {
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+/* Estado: punto de color + texto */
+.estado {
+  white-space: nowrap;
+}
+
+.estado::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.estado-planeada { color: #1d4ed8; }
+.estado-en-progreso { color: #b45309; }
+.estado-completada { color: #15803d; }
+.estado-cancelada { color: #b91c1c; }
+
+/* Caja blanca para formularios y detalles */
+.caja {
+  max-width: 560px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+}
+
+.caja.centrada {
+  max-width: 360px;
+  margin: 40px auto;
+}
+
+/* Formularios */
+label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.botones {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.field-validation-error,
+.validation-summary-errors {
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+/* Detalles */
+dl {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+dt {
+  color: var(--suave);
+}
+
+dd {
+  margin: 0;
+}
+
+/* Mensajes */
+.aviso {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0 0 20px;
+}
+
+.aviso.ok {
+  background: #ecfdf5;
+  color: #166534;
+}
+
+.aviso.error {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.vacio {
+  padding: 40px;
+  text-align: center;
+  background: #fff;
+  border: 1px dashed var(--borde);
+  border-radius: 8px;
+}

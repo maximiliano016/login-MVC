@@ -1,0 +1,45 @@
+@model Mision
+@{
+    ViewData["Title"] = "Nueva misión";
+}
+
+<div class="caja">
+    <h1>Nueva misión</h1>
+
+    @if (ViewBag.Error != null)
+    {
+        <p class="aviso error">@ViewBag.Error</p>
+    }
+
+    @* No hay campo UsuarioId: el controlador lo toma de la sesión. *@
+    <form asp-action="Create" method="post">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre"></span>
+
+        <label asp-for="Descripcion"></label>
+        <textarea asp-for="Descripcion" rows="3"></textarea>
+        <span asp-validation-for="Descripcion"></span>
+
+        <label asp-for="Ubicacion"></label>
+        <input asp-for="Ubicacion" />
+        <span asp-validation-for="Ubicacion"></span>
+
+        <label asp-for="FechaMision"></label>
+        <input asp-for="FechaMision" />
+        <span asp-validation-for="FechaMision"></span>
+
+        <label asp-for="Estado"></label>
+        <select asp-for="Estado" asp-items="@(new SelectList(Mision.Estados))"></select>
+        <span asp-validation-for="Estado"></span>
+
+        <div class="botones">
+            <button type="submit">Guardar</button>
+            <a class="boton secundario" asp-action="Index">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,27 @@
+@model Mision
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<div class="caja">
+    <h1>@Model.Nombre</h1>
+
+    <dl>
+        <dt>Estado</dt>
+        <dd><span class="estado estado-@(Model.Estado.ToLower().Replace(" ", "-"))">@Model.Estado</span></dd>
+
+        <dt>Descripción</dt>
+        <dd>@Model.Descripcion</dd>
+
+        <dt>Ubicación</dt>
+        <dd>@Model.Ubicacion</dd>
+
+        <dt>Fecha</dt>
+        <dd>@Model.FechaMision.ToString("dd/MM/yyyy")</dd>
+    </dl>
+
+    <div class="botones">
+        <a class="boton" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+        <a class="boton secundario" asp-action="Index">Volver</a>
+    </div>
+</div>

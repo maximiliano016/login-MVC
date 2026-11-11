@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+@{
+    // Si hay nombre en la sesión, el usuario inició sesión.
+    string? nombreUsuario = Context.Session.GetString("NombreUsuario");
+}
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AstroMission</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AstroMissionMVC.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="cabecera">
+        <a class="marca" asp-controller="Home" asp-action="Index">AstroMission</a>
+
+        <nav>
+            @if (nombreUsuario != null)
+            {
+                <a asp-controller="Misiones" asp-action="Index">Mis misiones</a>
+                <span class="usuario">@nombreUsuario</span>
+                <form asp-controller="Login" asp-action="Logout" method="post">
+                    <button type="submit" class="enlace">Salir</button>
+                </form>
+            }
+            else
+            {
+                <a asp-controller="Login" asp-action="Index">Iniciar sesión</a>
+            }
+        </nav>
+    </header>
+
+    <main class="contenido">
+        @* Mensajes que los controladores dejan en TempData *@
+        @if (TempData["Mensaje"] is string mensaje)
+        {
+            <p class="aviso ok">@mensaje</p>
+        }
+        @if (TempData["Error"] is string error)
+        {
+            <p class="aviso error">@error</p>
+        }
+
+        @RenderBody()
+    </main>
+
+    <footer class="pie">AstroMission &middot; 2026</footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

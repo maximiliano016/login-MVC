@@ -1,0 +1,29 @@
+@model Mision
+@{
+    ViewData["Title"] = "Eliminar misión";
+}
+
+<div class="caja">
+    <h1>¿Eliminar esta misión?</h1>
+    <p class="suave">Esta acción no se puede deshacer.</p>
+
+    <dl>
+        <dt>Nombre</dt>
+        <dd>@Model.Nombre</dd>
+
+        <dt>Ubicación</dt>
+        <dd>@Model.Ubicacion</dd>
+
+        <dt>Fecha</dt>
+        <dd>@Model.FechaMision.ToString("dd/MM/yyyy")</dd>
+
+        <dt>Estado</dt>
+        <dd><span class="estado estado-@(Model.Estado.ToLower().Replace(" ", "-"))">@Model.Estado</span></dd>
+    </dl>
+
+    @* POST a /Misiones/Delete/5 -> DeleteConfirmed en el controlador *@
+    <form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="botones">
+        <button type="submit" class="boton peligro">Sí, eliminar</button>
+        <a class="boton secundario" asp-action="Index">Cancelar</a>
+    </form>
+</div>

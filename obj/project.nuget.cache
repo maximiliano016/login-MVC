@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pEnJQTq1iF0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\estre\\Downloads\\proyectos desarrollo web 2\\api-login-prueba\\AstroMissionMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\estre\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

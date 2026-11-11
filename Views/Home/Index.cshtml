@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+    bool haySesion = Context.Session.GetInt32("UsuarioId") != null;
+}
+
+<h1>AstroMission</h1>
+<p class="suave">Registro de misiones de observación astronómica.</p>
+
+@if (haySesion)
+{
+    <a class="boton" asp-controller="Misiones" asp-action="Index">Ver mis misiones</a>
+}
+else
+{
+    <a class="boton" asp-controller="Login" asp-action="Index">Iniciar sesión</a>
+}
